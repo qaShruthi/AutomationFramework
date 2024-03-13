@@ -1,0 +1,57 @@
+package restAssured;
+
+import static io.restassured.RestAssured.*;
+import static io.restassured.matcher.RestAssuredMatchers.*;
+import static org.hamcrest.Matchers.*;
+
+import org.testng.Assert;
+import org.testng.annotations.Test;
+
+import io.restassured.response.Response;
+
+public class XMLResponse {
+	/*
+	 * 1. Index will start from 0, if index not specified then it consider the first one
+	 * 
+	 * 2. how to automate File upload and download
+	 */
+	
+	@Test
+	void testXMLResponse()
+	{
+		given()
+		
+		.when()
+		   .get("http://restapi.adequateshop.com/api/Traveler?page=1")
+		
+		.then()
+		.statusCode(200)
+		.header("Content-Type","application/xml; charset=utf-8")
+		.body("TravelerinformationResponse.page", equalTo("1"))
+		
+		.body("TravelerinformationResponse.travelers.Travelerinformation[4].name", equalTo("Ashor"));
+	}
+
+	
+	@Test(priority=1)
+	void printXMLResponse()
+	{
+		Response res = given()
+		
+		.when()
+		   .get("http://restapi.adequateshop.com/api/Traveler?page=1");
+		
+		
+		Assert.assertEquals(res.getStatusCode(), 200);
+		
+		System.out.println(res.header("Content-Type"));
+		Assert.assertEquals(res.header("Content-Type"), "application/xml; charset=utf-8");
+		
+		
+		String pageNum= res.xmlPath().get("TravelerinformationResponse.page").toString();
+		Assert.assertEquals(pageNum, "1");
+		
+		String travellerName = res.xmlPath().get("TravelerinformationResponse.travelers.Travelerinformation[4].name").toString();		
+		Assert.assertEquals(travellerName, "Ashor");
+	}
+}
