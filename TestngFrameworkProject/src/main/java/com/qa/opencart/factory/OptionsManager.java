@@ -21,6 +21,7 @@ public OptionsManager(Properties prop)
 public ChromeOptions getChromeOptions()
 {
 	co = new ChromeOptions();
+	co.addArguments("--remote-allow-origins=*");
 	if(prop.getProperty("headless").trim().equalsIgnoreCase("true"))
 	{
 		co.addArguments("--headless");

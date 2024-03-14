@@ -2,6 +2,7 @@
 <section name="Workbench">
 	<section name="MavenProjectWizardLocationPage">
 		<list key="location">
+			<item value="C:\Users\Shruthi\NaveenWorkspace\NaveenTestingFramework\TestngFrameworkProject"/>
 		</list>
 		<list key="projectNameTemplate">
 			<item value="[artifactId]"/>
@@ -43,6 +44,7 @@
 	</section>
 	<section name="MavenProjectWizardArtifactPage">
 		<list key="groupId">
+			<item value="SimpleMavenProject"/>
 			<item value="TestngFramework"/>
 			<item value="com.qa.opencart"/>
 			<item value="TestNg"/>
@@ -50,6 +52,7 @@
 		<list key="name">
 		</list>
 		<list key="artifactId">
+			<item value="SimpleMavenProject"/>
 			<item value="TestngFrameworkProject"/>
 			<item value="com.qa.opencart"/>
 			<item value="TestNgConcepts"/>
