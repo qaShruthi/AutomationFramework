@@ -38,16 +38,16 @@ public class DriverFactory {
 		String browserName = prop.getProperty("browser").trim().toLowerCase();
 		highlight = prop.getProperty("highlight").trim();
 
-		if (browserName.equals("chrome")) {
+		if (browserName.equalsIgnoreCase("chrome")) {
 			// driver = new ChromeDriver(opm.getChromeOptions());
 			tdlDriver.set(new ChromeDriver(opm.getChromeOptions()));
-		} else if (browserName.equals("firefox")) {
+		} else if (browserName.equalsIgnoreCase("firefox")) {
 			// driver = new FirefoxDriver(opm.getFirefoxOptions());
 			tdlDriver.set(new FirefoxDriver(opm.getFirefoxOptions()));
-		} else if (browserName.equals("safari")) {
+		} else if (browserName.equalsIgnoreCase("safari")) {
 			// driver = new SafariDriver();
 			tdlDriver.set(new SafariDriver());
-		} else if (browserName.equals("edge")) {
+		} else if (browserName.equalsIgnoreCase("edge")) {
 			// driver = new EdgeDriver(opm.getEdgeOptions());
 			tdlDriver.set(new EdgeDriver(opm.getEdgeOptions()));
 		} else {
